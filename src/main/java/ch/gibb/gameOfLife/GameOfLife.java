@@ -4,14 +4,14 @@ import java.util.Random;
 
 public class GameOfLife {
     // global definierte Konstanten für die beiden Dimensionen
-    final static int DIM1 = 12;
-    final static int DIM2 = 12;
+    final static int DIM1 = 15;
+    final static int DIM2 = 15;
 
     // liefert eine zufällig initialisierte Welt
     public static boolean[][] initWelt() {
 
         boolean[][] welt = new boolean[DIM1][DIM2];
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 50; i++) {
 
             Random random = new Random();
             welt[random.nextInt(1, DIM1-1)][random.nextInt(1,DIM2-1)] = true;
@@ -39,9 +39,9 @@ public class GameOfLife {
     public static boolean[][] wendeRegelnAn(boolean[][] welt) {
         boolean[][] welt0 = welt;
 
-        for (int zeile = 1; zeile < DIM1-1; zeile++) {
-            for (int spalte = 1; spalte < DIM2-1; spalte++) {
-                int nachbarn = getNachbarn(welt0, zeile, spalte);
+        for (int zeile = 1; zeile < DIM1; zeile++) {
+            for (int spalte = 1; spalte < DIM2; spalte++) {
+                int nachbarn = getNachbarn(welt, zeile, spalte);
                 welt0[zeile-1][spalte-1] = false;
                 if(nachbarn == 3){
                     welt0[zeile-1][spalte-1] = true;
@@ -69,12 +69,14 @@ public class GameOfLife {
         boolean[][] welt = initWelt();
         System.out.println("Startkonstellation");
         zeigeWelt(welt);
-        for (int i=1; i<=100; i++){
+        for (int i=1; i<=8; i++){
+            new BooleanArrayDisplay(welt);
             welt = wendeRegelnAn(welt);
             System.out.println();
             System.out.println("Generation "+i);
             System.out.println();
             zeigeWelt(welt);
+
         }
     }
 }
