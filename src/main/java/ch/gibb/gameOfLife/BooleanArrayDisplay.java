@@ -40,7 +40,7 @@ public class BooleanArrayDisplay extends JFrame {
             }
         }
         setSize(500, 500);
-        pack();
+
         setLocationRelativeTo(null);
         setVisible(true);
     }
