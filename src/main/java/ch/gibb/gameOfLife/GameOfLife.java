@@ -11,7 +11,7 @@ public class GameOfLife {
     public static boolean[][] initWelt() {
 
         boolean[][] welt = new boolean[DIM1][DIM2];
-        for (int i = 0; i < 60; i++) {
+        for (int i = 0; i < 30; i++) {
 
             Random random = new Random();
             welt[random.nextInt(1, DIM1-1)][random.nextInt(1,DIM2-1)] = true;
@@ -22,15 +22,16 @@ public class GameOfLife {
     // gibt die aktuelle Welt aus
     public static void zeigeWelt(boolean[][] welt) {
         for (int zeile = 0; zeile < DIM1; zeile++) {
+            System.out.print(zeile+2);
             for (int spalte = 0; spalte < DIM2; spalte++) {
-
                 if (welt[zeile][spalte]) {
                     System.out.print("x");
                 } else {
-                    System.out.print(" ");
+                    System.out.print("_");
                 }
             }
             System.out.println();
+
         }
     }
 
@@ -38,29 +39,26 @@ public class GameOfLife {
     // Folgegeneration wieder zurück
     public static boolean[][] wendeRegelnAn(boolean[][] welt) {
         boolean[][] welt0 = welt;
-        boolean[][] welt1 = welt;
 
         for (int zeile = 1; zeile < DIM1-1; zeile++) {
             for (int spalte = 1; spalte < DIM2-1; spalte++) {
                 int nachbarn = getNachbarn(welt0, zeile, spalte);
-                welt0[zeile][spalte] = false;
-                if(welt1[zeile][spalte] && nachbarn >= 2 && nachbarn <= 3)
-                    welt0[zeile][spalte] = true;
-                else if(!welt[zeile][spalte] && nachbarn == 3){
-                    welt0[zeile][spalte] = true;
-                } else {
-                    welt0[zeile][spalte] = false;
+                welt0[zeile-1][spalte-1] = false;
+                if(nachbarn == 3){
+                    welt0[zeile-1][spalte-1] = true;
+                } else if(welt[zeile][spalte-1] && nachbarn == 2){
+                    welt0[zeile-1][spalte-1] = true;
                 }
             }
         }
         return welt0;
     }
 
-    private static int getNachbarn(boolean[][] welt0, int zeile, int spalte) {
+    private static int getNachbarn(boolean[][] welt, int zeile, int spalte) {
         int nachbarn = 0;
         for (int i = zeile - 1; i < zeile + 1; i++) {
             for (int j = spalte - 1; j < spalte + 1; j++) {
-                if (welt0[i][j]) {
+                if (welt[i][j]) {
                     nachbarn++;
                 }
             }
@@ -72,9 +70,12 @@ public class GameOfLife {
         boolean[][] welt = initWelt();
         System.out.println("Startkonstellation");
         zeigeWelt(welt);
-        for (int i=1; i<=10; i++){
+        for (int i=1; i<=100; i++){
             welt = wendeRegelnAn(welt);
+            System.out.println();
             System.out.println("Generation "+i);
+            System.out.println();
+            System.out.println("123456789012");
             zeigeWelt(welt);
         }
     }
