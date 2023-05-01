@@ -22,7 +22,6 @@ public class GameOfLife {
     // gibt die aktuelle Welt aus
     public static void zeigeWelt(boolean[][] welt) {
         for (int zeile = 0; zeile < DIM1; zeile++) {
-            System.out.print(zeile+2);
             for (int spalte = 0; spalte < DIM2; spalte++) {
                 if (welt[zeile][spalte]) {
                     System.out.print("x");
@@ -75,7 +74,6 @@ public class GameOfLife {
             System.out.println();
             System.out.println("Generation "+i);
             System.out.println();
-            System.out.println("123456789012");
             zeigeWelt(welt);
         }
     }
