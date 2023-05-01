@@ -1,8 +1,7 @@
 package ch.gibb.gameOfLife;
 
 import java.awt.*;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class BooleanArrayDisplay extends JFrame {
     private int ROWS = GameOfLife.DIM1;
@@ -34,12 +33,15 @@ public class BooleanArrayDisplay extends JFrame {
             for (int col = 0; col < COLS; col++) {
                 if (world[row][col]) {
                     squares[row][col].setBackground(Color.BLACK);
+
                 } else {
-                    squares[row][col].setBackground(Color.WHITE);
+                    squares[row][col].setBackground(Color.LIGHT_GRAY);
+                    squares[row][col].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
                 }
             }
         }
-        setSize(500, 500);
+        setSize(400, 400);
 
         setLocationRelativeTo(null);
         setVisible(true);
