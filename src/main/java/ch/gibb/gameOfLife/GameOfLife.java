@@ -71,7 +71,7 @@ public class GameOfLife {
         boolean[][] welt = initWelt();
         System.out.println("Startkonstellation");
         zeigeWelt(welt);
-        for (int i=1; i<=20; i++){
+        for (int i=1; i<=50; i++){
             new BooleanArrayDisplay(welt);
             welt = wendeRegelnAn(welt);
             System.out.println();
