@@ -23,10 +23,24 @@ public class SelectionSort implements Sortable{
                 }
             }
         }
-
-
-
         return numbers;
 
+    }
+    public int [] sort2(){
+        for (int i = 0; i < numbers.length; i++) {
+
+            int index = i;
+            for (int j = i ; j < numbers.length; j++) {
+                if(numbers[j]<numbers[index])
+                    index = j;
+
+            }
+            int temp = numbers[i];
+            numbers[i] = numbers[index];
+            numbers[index] = temp;
+
+
+        }
+        return numbers;
     }
 }

@@ -21,7 +21,10 @@ public class Sorters {
         System.out.println("time BubbleSort:   \t\t" + time(start));
         start = start();
         new SelectionSort(arr.clone()).sort();
-        System.out.println("time SelectionSort: \t" + time(start));
+        System.out.println("time SelectionSort1: \t" + time(start));
+        start = start();
+        new SelectionSort(arr.clone()).sort2();
+        System.out.println("time SelectionSort1: \t" + time(start));
 
     }
 
