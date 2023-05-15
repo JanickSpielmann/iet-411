@@ -4,13 +4,13 @@ package ch.gibb.sortAlgorithm;
 
 public class InsertionSort implements Sortable {
 
-    private int[] numbers;
+    private final int[] numbers;
 
     public InsertionSort(int[] numbers) {
         this.numbers = numbers;
     }
 
-@Override
+    @Override
     public int[] sort() {
 
         int temp;

@@ -1,5 +1,9 @@
 package ch.gibb.sortAlgorithm;
 
+import ch.gibb.sortAlgorithm.ChatGPTEdition.bubbleSort;
+import ch.gibb.sortAlgorithm.ChatGPTEdition.insertionSort;
+import ch.gibb.sortAlgorithm.ChatGPTEdition.selectionSort;
+
 import java.util.Random;
 
 public class Sorters {
@@ -13,18 +17,35 @@ public class Sorters {
 
         long start = start();
         new InsertionSort(arr.clone()).sort();
-        System.out.println("time InsertionSort: \t" + time(start));
-
+        System.out.println("time InsertionSort: \t\t" + time(start));
 
         start = start();
         new BubbleSort(arr.clone()).sort();
-        System.out.println("time BubbleSort:   \t\t" + time(start));
+        System.out.println("time BubbleSort:   \t\t\t" + time(start));
+
         start = start();
         new SelectionSort(arr.clone()).sort();
-        System.out.println("time SelectionSort1: \t" + time(start));
+        System.out.println("time SelectionSort1: \t\t" + time(start));
+
         start = start();
         new SelectionSort(arr.clone()).sort2();
-        System.out.println("time SelectionSort1: \t" + time(start));
+        System.out.println("time SelectionSort2: \t\t" + time(start));
+
+        System.out.println("------------ ChatGPT--------------");
+        start = start();
+        insertionSort.insertionSort(arr.clone());
+        System.out.println("GPT time InsertionSort: \t" + time(start));
+
+        start = start();
+        bubbleSort.bubbleSort(arr.clone());
+        System.out.println("GPT time BubbleSort: \t\t" + time(start));
+
+        start = start();
+        selectionSort.selectionSort(arr.clone());
+        System.out.println("GPT time SelectionSort: \t" + time(start));
+
+
+
 
     }
 
