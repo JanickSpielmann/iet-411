@@ -10,7 +10,7 @@ public class ArrayListExample {
         ArrayList<Integer> arrayList = new ArrayList<>();
         LinkedList<Integer> linkedList = new LinkedList<>();
         // Füllen der Listen mit Zufallszahlen
-        for (int i = 0; i < 100000000; i++) {
+        for (int i = 0; i < 1000000000; i++) {
             int randomNumber = (int) (Math.random() * 1000000);
             arrayList.add(randomNumber);
             linkedList.add(randomNumber);
